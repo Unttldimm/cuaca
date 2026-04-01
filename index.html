@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuaca Wisata Bogor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <button id="back-btn" class="hidden">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Kembali
+    </button>
+    <div class="header-titles">
+      <h1 id="main-title">Destinasi Wisata</h1>
+      <p id="sub-title">Pilih lokasi untuk melihat prakiraan cerdas</p>
+    </div>
+    <button id="thesis-btn" class="header-action" onclick="openThesis()">📖 Metodologi</button>
+  </div>
+
+  <div id="home-view" class="view active">
+      <div id="locations-container" class="locations-grid"></div>
+  </div>
+
+  <div id="thesis-view" class="view slide-right">
+      <div class="thesis-header-text animate-entrance" style="animation-delay: 0.1s">
+          <h2>Bab 3 & 4: Metodologi Pendekatan</h2>
+          <p>Alur Arsitektur Prediksi Cuaca Berbasis Random Forest</p>
+      </div>
+      <div class="thesis-timeline">
+          <div class="thesis-card animate-entrance" style="animation-delay: 0.2s">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                  <h3>Pengumpulan Dataset Historis</h3>
+                  <p>Menarik data setebal 3-5 tahun terakhir dari stasiun cuaca satelit konvensional via Open-Meteo REST API atau BMKG. Fitur input (Suhu, Kelembaban Relative, dsb) dipetakan ke target nyata (Hujan / Cerah).</p>
+                  <div class="tags"><span class="tag">CSV Format</span><span class="tag">API Scraping</span><span class="tag">Time-Series</span></div>
+              </div>
+          </div>
+          <div class="thesis-card animate-entrance" style="animation-delay: 0.3s">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                  <h3>Data Pre-processing</h3>
+                  <p>Tahapan manipulasi data mentah (Imputasi Outliers, penanganan Missing Values), lalu membagi datanya menjadi <code>80% Data Latih (Training)</code> dan <code>20% Data Uji (Testing)</code> guna mencegah Overfitting.</p>
+              </div>
+          </div>
+          <div class="thesis-card animate-entrance" style="animation-delay: 0.4s">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                  <h3>Pemodelan Random Forest (Ensemble)</h3>
+                  <p>Algoritma membangun ratusan Pohon Keputusan (*Decision Trees*, N=150). Setiap pohon dipantau nilai Gini Impurity-nya dalam membelah *nodes*. Semua node final melakukan *Majority Voting* untuk memprediksi probabilitas presipitasi hujan harian.</p>
+                  <div class="tags"><span class="tag">Gini Impurity</span><span class="tag">Entropy</span><span class="tag">Majority Voting</span></div>
+              </div>
+          </div>
+          <div class="thesis-card animate-entrance" style="animation-delay: 0.5s">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                  <h3>Evaluasi Matriks (Confusion Matrix)</h3>
+                  <p>Mengukur kekuatan performa tebakan cuaca algoritma dibandingkan dengan data Test 20%. Penekanannya terletak pada optimalisasi F1-Score agar prediksi cerah benar-benar terbukti cerah.</p>
+                  <div class="eval-grid">
+                      <div class="eval-box"><strong>Akurasi OOB</strong><br>94.6%</div>
+                      <div class="eval-box"><strong>Presisi</strong><br>92.1%</div>
+                      <div class="eval-box"><strong>Recall</strong><br>91.8%</div>
+                      <div class="eval-box"><strong>F1-Score</strong><br>93.0%</div>
+                  </div>
+              </div>
+          </div>
+          <div class="thesis-card animate-entrance" style="animation-delay: 0.6s">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                  <h3>Deployment Front-End/Back-End Terintegrasi</h3>
+                  <p>Model Sci-Kit Learn (*.pkl*) diselipkan ke dalam backend server Flask. Aplikasi UI Apple Style buatan kita ini bertugas me-*render* grafik secara *realtime* di sisi pengguna sambil memanggil Endpoint Flask tersebut.</p>
+                  <div class="tags"><span class="tag">Pickle</span><span class="tag">Flask</span><span class="tag">AJAX / RESTful</span></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="detail-view" class="view slide-right">
+      <div id="weather-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

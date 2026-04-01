@@ -1,0 +1,142 @@
+[
+    {
+        "wilayah": "Kebun Raya Bogor",
+        "waktu": "202604010800",
+        "kelembaban": 80,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Kebun Raya Bogor",
+        "waktu": "202604011200",
+        "kelembaban": 65,
+        "curah_hujan": 1.5,
+        "risiko_kebakaran": "SEDANG"
+    },
+    {
+        "wilayah": "Kebun Raya Bogor",
+        "waktu": "202604011500",
+        "kelembaban": 85,
+        "curah_hujan": 15.5,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Kebun Raya Bogor",
+        "waktu": "202604011900",
+        "kelembaban": 95,
+        "curah_hujan": 2.2,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Taman Safari",
+        "waktu": "202604010800",
+        "kelembaban": 90,
+        "curah_hujan": 5.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Taman Safari",
+        "waktu": "202604011300",
+        "kelembaban": 70,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "TINGGI"
+    },
+    {
+        "wilayah": "Taman Safari",
+        "waktu": "202604011600",
+        "kelembaban": 80,
+        "curah_hujan": 10.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Taman Safari",
+        "waktu": "202604012000",
+        "kelembaban": 90,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Gunung Pancar",
+        "waktu": "202604010900",
+        "kelembaban": 85,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "SEDANG"
+    },
+    {
+        "wilayah": "Gunung Pancar",
+        "waktu": "202604011200",
+        "kelembaban": 50,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "TINGGI"
+    },
+    {
+        "wilayah": "Gunung Pancar",
+        "waktu": "202604011700",
+        "kelembaban": 65,
+        "curah_hujan": 5.0,
+        "risiko_kebakaran": "SEDANG"
+    },
+    {
+        "wilayah": "Gunung Pancar",
+        "waktu": "202604012100",
+        "kelembaban": 85,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Curug Nangka",
+        "waktu": "202604010700",
+        "kelembaban": 95,
+        "curah_hujan": 10.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Curug Nangka",
+        "waktu": "202604011400",
+        "kelembaban": 75,
+        "curah_hujan": 25.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Curug Nangka",
+        "waktu": "202604011700",
+        "kelembaban": 85,
+        "curah_hujan": 5.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Curug Nangka",
+        "waktu": "202604012200",
+        "kelembaban": 90,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Puncak",
+        "waktu": "202604010800",
+        "kelembaban": 90,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "SEDANG"
+    },
+    {
+        "wilayah": "Puncak",
+        "waktu": "202604011300",
+        "kelembaban": 60,
+        "curah_hujan": 0.0,
+        "risiko_kebakaran": "TINGGI"
+    },
+    {
+        "wilayah": "Puncak",
+        "waktu": "202604011600",
+        "kelembaban": 85,
+        "curah_hujan": 30.5,
+        "risiko_kebakaran": "RENDAH"
+    },
+    {
+        "wilayah": "Puncak",
+        "waktu": "202604012000",
+        "kelembaban": 95,
+        "curah_hujan": 2.0,
+        "risiko_kebakaran": "RENDAH"
+    }
+]
