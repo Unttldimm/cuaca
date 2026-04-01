@@ -34,48 +34,79 @@
             <p>Alur Arsitektur Prediksi Cuaca Berbasis Random Forest</p>
         </div>
         <div class="thesis-timeline">
+            <!-- 1. Dataset Preview -->
             <div class="thesis-card animate-entrance" style="animation-delay: 0.2s">
                 <div class="step-num">1</div>
                 <div class="step-content">
-                    <h3>Pengumpulan Dataset Historis</h3>
-                    <p>Menarik data setebal 3-5 tahun terakhir dari stasiun cuaca satelit konvensional via Open-Meteo REST API atau BMKG. Fitur input (Suhu, Kelembaban Relative, dsb) dipetakan ke target nyata (Hujan / Cerah).</p>
-                    <div class="tags"><span class="tag">CSV Format</span><span class="tag">API Scraping</span><span class="tag">Time-Series</span></div>
+                    <h3>Pengumpulan & Atribut Dataset Historic</h3>
+                    <p>Menarik data curah cuaca Open-Meteo pada parameter krusial. Atribut fitur (X) yang diambil mencakup <b>Suhu Udara (2m)</b>, <b>Kelembaban Relatif (2m)</b>, dan <b>Kecepatan Angin (10m)</b>. Target klasifikasi (Y) adalah probabilitas curah hujan (Hujan / Cerah).</p>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Suhu (°C)</th>
+                                    <th>Kelembaban (%)</th>
+                                    <th>Angin (km/h)</th>
+                                    <th>Kondisi Target</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>2026-03-01</td><td>28.5</td><td>78</td><td>12.4</td><td><span class="badg cerah">Cerah</span></td></tr>
+                                <tr><td>2026-03-02</td><td>26.2</td><td>85</td><td>15.1</td><td><span class="badg hujan">Hujan</span></td></tr>
+                                <tr><td>2026-03-03</td><td>29.0</td><td>72</td><td>9.5</td><td><span class="badg cerah">Cerah</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            <!-- 2. Preparation -->
             <div class="thesis-card animate-entrance" style="animation-delay: 0.3s">
                 <div class="step-num">2</div>
                 <div class="step-content">
-                    <h3>Data Pre-processing</h3>
-                    <p>Tahapan manipulasi data mentah (Imputasi Outliers, penanganan Missing Values), lalu membagi datanya menjadi <code>80% Data Latih (Training)</code> dan <code>20% Data Uji (Testing)</code> guna mencegah Overfitting.</p>
+                    <h3>Data Preparation (Pre-processing)</h3>
+                    <p>Manipulasi data mentah mencakup penanganan nilai yang hilang <i>(Missing Values Imputation)</i> dan pembersihan pencilan <i>(Outliers Handler)</i>. Data kemudian dibagi memakai rasio <code>80% Data Latih (Training)</code> dan <code>20% Data Uji (Testing)</code> guna mencegah model menghafal data <i>(Overfitting)</i>.</p>
                 </div>
             </div>
+
+            <!-- 3. Modeling -->
             <div class="thesis-card animate-entrance" style="animation-delay: 0.4s">
                 <div class="step-num">3</div>
                 <div class="step-content">
                     <h3>Pemodelan Random Forest (Ensemble)</h3>
-                    <p>Algoritma membangun ratusan Pohon Keputusan (*Decision Trees*, N=150). Setiap pohon dipantau nilai Gini Impurity-nya dalam membelah *nodes*. Semua node final melakukan *Majority Voting* untuk memprediksi probabilitas presipitasi hujan harian.</p>
-                    <div class="tags"><span class="tag">Gini Impurity</span><span class="tag">Entropy</span><span class="tag">Majority Voting</span></div>
+                    <p>Algoritma Random Forest membangun ratusan Pohon Keputusan (Decision Trees). Setiap titik cabang persimpangan dievaluasi kualitasnya dengan indeks <b>Gini Impurity / Entropy</b>. Keputusan probabilitas Hujan harian adalah hasil perhitungan agregasi <i>Majority Voting</i> terbanyak dari seluruh pohon tersebut.</p>
                 </div>
             </div>
+
+            <!-- 4. Evaluation -->
             <div class="thesis-card animate-entrance" style="animation-delay: 0.5s">
                 <div class="step-num">4</div>
                 <div class="step-content">
-                    <h3>Evaluasi Matriks (Confusion Matrix)</h3>
-                    <p>Mengukur kekuatan performa tebakan cuaca algoritma dibandingkan dengan data Test 20%. Penekanannya terletak pada optimalisasi F1-Score agar prediksi cerah benar-benar terbukti cerah.</p>
-                    <div class="eval-grid">
-                        <div class="eval-box"><strong>Akurasi OOB</strong><br>94.6%</div>
-                        <div class="eval-box"><strong>Presisi</strong><br>92.1%</div>
-                        <div class="eval-box"><strong>Recall</strong><br>91.8%</div>
-                        <div class="eval-box"><strong>F1-Score</strong><br>93.0%</div>
+                    <h3>Evaluasi Kinerja (Confusion Matrix) & Hasil</h3>
+                    <p>Menguji validitas tebakan model pada sisa data Uji 20%. Pola rekam jejak tebakan dicatat pada Matriks Kebingungan <i>(Confusion Matrix)</i> di bawah, menghasilkan performa F1-Score dan presisi setajam 71% dengan jangkauan kapabilitas ROC-AUC di angka kuat 0.92.</p>
+                    
+                    <div class="cm-wrapper">
+                        <div class="cm-blank"></div>
+                        <div class="cm-col-label">Tebak Cerah</div>
+                        <div class="cm-col-label">Tebak Hujan</div>
+                        
+                        <div class="cm-row-label">Asli<br>Cerah</div>
+                        <div class="cm-box true-val"><strong>TN (True Neg)</strong>245</div>
+                        <div class="cm-box false-val"><strong>FP (False Pos)</strong>97</div>
+                        
+                        <div class="cm-row-label">Asli<br>Hujan</div>
+                        <div class="cm-box false-val"><strong>FN (False Neg)</strong>101</div>
+                        <div class="cm-box true-val"><strong>TP (True Pos)</strong>256</div>
                     </div>
-                </div>
-            </div>
-            <div class="thesis-card animate-entrance" style="animation-delay: 0.6s">
-                <div class="step-num">5</div>
-                <div class="step-content">
-                    <h3>Deployment Front-End/Back-End Terintegrasi</h3>
-                    <p>Model Sci-Kit Learn (*.pkl*) diselipkan ke dalam backend server Flask. Aplikasi UI Apple Style buatan kita ini bertugas me-*render* grafik secara *realtime* di sisi pengguna sambil memanggil Endpoint Flask tersebut.</p>
-                    <div class="tags"><span class="tag">Pickle</span><span class="tag">Flask</span><span class="tag">AJAX / RESTful</span></div>
+
+                    <div class="eval-grid">
+                        <div class="eval-box"><strong>Accuracy</strong><br>0.71</div>
+                        <div class="eval-box"><strong>Precision</strong><br>0.71</div>
+                        <div class="eval-box"><strong>Recall</strong><br>0.71</div>
+                        <div class="eval-box"><strong>F1-Score</strong><br>0.70</div>
+                        <div class="eval-box"><strong>ROC-AUC</strong><br>0.92</div>
+                    </div>
                 </div>
             </div>
         </div>
