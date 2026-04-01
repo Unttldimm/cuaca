@@ -932,25 +932,48 @@ body {
         left: 20px; /* Terkunci mati di titik as (center) persis di dalam lebar balok 40px */
     }
 
-    /* Penyesuaian Skala Layout (agar satu kartu tidak menabrak batas satu layar penuh) */
+    /* Native App List Style (1 Column) */
     .locations-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 12px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     
     .location-card {
-        padding: 16px 12px;
+        padding: 16px 20px;
         min-height: auto;
-    }
-    
-    .location-card h3 {
-        font-size: 14px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            "icon title"
+            "icon subtitle";
+        gap: 2px 16px;
+        text-align: left;
+        align-items: center;
     }
 
-    .location-emoji {
-        font-size: 32px;
-        margin-bottom: 8px;
+    .location-icon {
+        grid-area: icon;
+        font-size: 36px;
+        margin-bottom: 0;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+    }
+
+    .location-title {
+        grid-area: title;
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--text-primary);
+        align-self: flex-end;
+        line-height: 1.2;
+    }
+
+    .location-subtitle {
+        grid-area: subtitle;
+        font-size: 13px;
+        color: var(--text-secondary);
+        align-self: flex-start;
+        margin: 0;
     }
 
     /* Mengecilkan lebar kartu horizontal prediksi jam cuaca */
