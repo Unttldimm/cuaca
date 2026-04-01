@@ -813,4 +813,40 @@ body {
     .thesis-timeline::before {
         left: 20px; /* Terkunci mati di titik as (center) persis di dalam lebar balok 40px */
     }
+
+    /* Penyesuaian Skala Layout (agar satu kartu tidak menabrak batas satu layar penuh) */
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 10px;
+    }
+    
+    .location-card {
+        padding: 16px 12px;
+        min-height: auto;
+    }
+    
+    .location-card h3 {
+        font-size: 14px;
+    }
+
+    .location-emoji {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    /* Mengecilkan lebar kartu horizontal prediksi jam cuaca */
+    .card {
+        min-width: 210px; 
+        padding: 16px;
+    }
+    
+    .card .time-main {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .card .stats .value {
+        font-size: 13px !important;
+    }
 }
