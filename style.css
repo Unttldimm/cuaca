@@ -861,3 +861,59 @@ body {
         font-size: 13px !important;
     }
 }
+
+/* ----------------------------------
+   PRINT TO PDF STYLING
+   --------------------------------- */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+    }
+
+    .app-layout {
+        margin: 0 !important;
+    }
+
+    /* Sembunyikan semua elemen navigasi / tombol */
+    #back-btn, #thesis-btn, #print-btn, .header-action {
+        display: none !important;
+    }
+
+    .header-titles {
+        margin-top: 0 !important;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #EEE;
+    }
+
+    /* Bersihkan bayangan & batasan warna agar tinta hemat / PDF bersih */
+    .rf-analysis-box, .pipeline-step, .card, .step-badge {
+        box-shadow: none !important;
+        border: 1px solid #CCC !important;
+        background: white !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+    
+    .rf-stats-row {
+        flex-wrap: wrap !important;
+    }
+
+    /* Ubah Horizontal Scroll Card menjadi Grid turun ke bawah agar ikut tercetak semua */
+    .cards-wrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        gap: 15px !important;
+        justify-content: flex-start !important;
+    }
+
+    .card {
+        min-width: 250px !important;
+        flex: 1 1 calc(33.333% - 15px) !important;
+        margin: 0 !important;
+        page-break-inside: avoid;
+    }
+}

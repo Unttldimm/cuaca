@@ -46,6 +46,7 @@ function openThesis() {
     document.getElementById("sub-title").innerText = "Penerapan Arsitektur Algoritma Random Forest";
     document.getElementById("back-btn").classList.remove("hidden");
     document.getElementById("thesis-btn").classList.add("hidden");
+    document.getElementById("print-btn").classList.add("hidden");
 
     currentView = 'thesis';
 
@@ -90,6 +91,7 @@ function openDetail(wilayah) {
     document.getElementById("sub-title").innerText = "Prakiraan Cuaca Real-Time Open-Meteo";
     document.getElementById("back-btn").classList.remove("hidden");
     document.getElementById("thesis-btn").classList.add("hidden");
+    document.getElementById("print-btn").classList.remove("hidden");
 
     currentView = 'detail';
 
@@ -112,6 +114,7 @@ function closeDetail() {
     document.getElementById("sub-title").innerText = "Pilih lokasi untuk melihat prakiraan cerdas";
     document.getElementById("back-btn").classList.add("hidden");
     document.getElementById("thesis-btn").classList.remove("hidden");
+    document.getElementById("print-btn").classList.add("hidden");
 
     currentView = 'home';
 
