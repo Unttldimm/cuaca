@@ -44,6 +44,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    
+    /* Layout vertikal layar lebar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-layout {
+    width: 100%;
+    margin: auto 0;
+    position: relative;
 }
 
 .header {
