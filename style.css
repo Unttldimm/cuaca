@@ -130,6 +130,10 @@ body {
     transform: translateX(-10px);
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* ----------------------------------
    ADVANCED VIEWS & ANIMATION ENGINE 
    --------------------------------- */
